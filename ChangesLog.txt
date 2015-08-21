@@ -1,0 +1,13 @@
+21 August 2015
+   released version 1.0.1 of Simple-Password-Generator
+
+     Change log:
+        -Updated: Boilerplate with new version.h
+        -Added: Version.h
+        -Updated: Private is now defined when complied by Code::Blocks
+
+11 August 2015
+	released version 1.0.0 of Simple-Password-Generator
+	
+	 Change log:
+		-Inital

@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include "version.h"
+
 
 char *password;
 FILE* keyfile;
@@ -24,28 +26,28 @@ int main(void)
 	char chrLowerCase[] = {'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'}; //26
 	char chrNumbers[] = {'0','1','2','3','4','5','6','7','8','9'}; //10
 	char chrSymbols[] = {' ','!','@','#','$','%','^','&','*','(',')','~','|','{','}','_','-','<','>','?','/',':',';'}; //23
-	
-	
+
+
 	do
 	{
 		printf("\nPlease enter the length of your password from 1 to 255: ");
 		scanf("%d",&intLength);
 	} while (intLength > 255 || intLength < 1);
-	
+
 	do
 	{
 		printf("\nPlease enter the complexity of your password from 0 to 3, (3 is the most complex): ");
 		scanf("%d",&intComplex);
 	} while (intComplex > 3 || intComplex < 0);
-	
+
 	password = malloc(sizeof(char) * (intLength + 1));
-	
+
 	if (password == NULL) {printf("\nNot enough memory, program will exit.\n"); getchar(); return 0;}
 	if (intComplex != 0)
 	{
 		for (i = 0; i < intLength; i++)
 		{
-		
+
 			switch(intComplex)
 			{
 				break;
@@ -99,7 +101,7 @@ int main(void)
 						password[i] = chrSymbols[Rado];
 					}
 				break;
-			
+
 			}
 		}
 	}
@@ -116,7 +118,7 @@ int main(void)
 			if(wordcount == NULL) {printf("\nNot enough memory, program will exit.\n"); getchar(); return 0;}
 			wordcount[arraynum] = Rndom;
 			arraynum++;
-			intLength -= Rndom;			
+			intLength -= Rndom;
 		}
 		for (i = 0; i <= arraynum; i++)
 		{
