@@ -10,13 +10,14 @@ IF EXIST Password-Generator.exe.stackdump del /F Password-Generator.exe.stackdum
 
 cd %~dp0res
 ::Complie the resource files of the icon and boilerplate
-windres my_icon.rc -O coff my_icon.res
 windres boilerplate.rc -O coff boilerplate.res
 
 cd %~dp0
+gcc -w -s -Os -c %~dp0src\main.c
 
-gcc -g -Wall -o Password-Generator.exe %~dp0src\main.c %~dp0Res\boilerplate.res %~dp0Res\my_icon.res
+gcc -s -Os -o Password-Generator.exe main.o %~dp0Res\boilerplate.res 
 
+IF EXIST main.o del /F main.o
 IF EXIST %~dp0Res\boilerplate.res del /F %~dp0Res\boilerplate.res
 IF EXIST %~dp0Res\my_icon.res del /F %~dp0Res\my_icon.res
 pause
